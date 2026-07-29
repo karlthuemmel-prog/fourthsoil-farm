@@ -29,6 +29,7 @@
     { "id": "pea-shoots",           "label": "Pea Shoots" },
     { "id": "rainbow-radish-mix",   "label": "Rainbow Radish Mix" },
     { "id": "arugula",              "label": "Arugula" },
+    { "id": "purple-kohlrabi",      "label": "Purple Kohlrabi" },
     { "id": "red-cabbage",          "label": "Red Cabbage" },
     { "id": "spicy-asian-mustard",  "label": "Spicy Asian Mustard" },
     { "id": "cilantro",             "label": "Cilantro" },
@@ -54,9 +55,10 @@
         { "id": "tendril-pea",         "label": "Tendril Pea" },
         { "id": "red-cabbage",         "label": "Red Cabbage" },
         { "id": "spicy-asian-mustard", "label": "Spicy Asian Mustard" },
-        { "id": "arugula",             "label": "Arugula" }
+        { "id": "arugula",             "label": "Arugula" },
+        { "id": "purple-kohlrabi",     "label": "Purple Kohlrabi" }
       ]
     },
-    "_comment": "Mixes, Cilantro, and Red Garnet Amaranth are NOT offered in bulk format — only the 7 varieties listed above."
+    "_comment": "Mixes, Cilantro, and Red Garnet Amaranth are NOT offered in bulk format — only the 8 varieties listed above."
   }
 }

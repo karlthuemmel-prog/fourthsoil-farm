@@ -36,6 +36,7 @@ const CUSTOM_COMBO_VARIETIES = {
   'pea-shoots': 'Pea Shoots',
   'rainbow-radish-mix': 'Rainbow Radish Mix',
   'arugula': 'Arugula',
+  'purple-kohlrabi': 'Purple Kohlrabi',
   'red-cabbage': 'Red Cabbage',
   'spicy-asian-mustard': 'Spicy Asian Mustard',
   'cilantro': 'Cilantro',
@@ -56,6 +57,7 @@ const BULK_VARIETIES = {
   'red-cabbage': { label: 'Red Cabbage', category: 'micros' },
   'spicy-asian-mustard': { label: 'Spicy Asian Mustard', category: 'micros' },
   'arugula': { label: 'Arugula', category: 'micros' },
+  'purple-kohlrabi': { label: 'Purple Kohlrabi', category: 'micros' },
 };
 
 const DELIVERY = { freeThreshold: 20.00, fee: 5.00 };

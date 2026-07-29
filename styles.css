@@ -169,6 +169,7 @@ ul { list-style: none; }
 }
 .nav-logo:hover { color: #22a822; text-decoration: none; }
 .nav-logo-leaf { font-size: 1.3rem; color: #22a822; }
+.nav-logo-img { height: 32px; width: auto; display: block; }
 
 .nav-links {
   display: flex;
