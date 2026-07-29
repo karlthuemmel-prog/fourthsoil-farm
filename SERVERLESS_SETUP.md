@@ -111,7 +111,21 @@ With the test secret key still in place:
    to confirm the order landed correctly, with the right price and — for
    subscriptions — the right billing interval (weekly vs. every 2 weeks)
 
-## 8. Go live
+## 8. Get notified when an order comes in
+
+Stripe can email you automatically for every successful payment and new
+subscription — no code needed. In the Stripe Dashboard, go to
+**Settings → Notifications** and turn on email alerts for payments and
+subscriptions. The email includes the line-item descriptions (variety names,
+Delivery Fee if applied), so it doubles as a quick order summary. Do this in
+both Test mode and Live mode, since the setting is separate for each.
+
+If you'd rather get a text or a Slack message instead of email, that would
+require a Stripe webhook forwarding to a custom handler — a bigger lift than
+this one Dashboard toggle. Worth considering later if email notifications
+turn out to be too easy to miss.
+
+## 9. Go live
 
 When you're confident everything works in test mode:
 

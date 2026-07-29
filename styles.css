@@ -786,6 +786,16 @@ ul { list-style: none; }
   color: #0d4030;
 }
 
+.order-fee-note {
+  font-size: 0.82rem;
+  color: #8a6d3b;
+  background: #fdf6e8;
+  border: 1px solid #eddfb8;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  margin: -0.75rem 0 1.5rem;
+}
+
 .upsell-card {
   background: #fff;
   border: 2px solid #22a822;
@@ -1065,6 +1075,64 @@ ul { list-style: none; }
 .footer-bottom p:last-child { margin-bottom: 0; }
 .footer-legal { opacity: 0.85; }
 
+.footer-references { margin-bottom: 0.6rem; opacity: 0.65; }
+.footer-references-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+.footer-references-list a {
+  color: rgba(255,255,255,0.75);
+  margin: 0 0.3rem;
+  font-size: 0.78rem;
+  text-decoration: underline;
+}
+.footer-references-list a:hover { color: #22a822; }
+
+/* ---- Success Page ---- */
+.success { background: #ffffff; }
+.success-card {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  background: #f7f7f5;
+  border: 2px solid #22a822;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+}
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  background: #22a822;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.success-card h1 { margin-bottom: 1rem; }
+.success-message {
+  font-size: 1.05rem;
+  color: #333333;
+  margin-bottom: 1.25rem;
+}
+.success-note {
+  font-size: 0.9rem;
+  color: #5a5a5a;
+  margin-bottom: 2rem;
+}
+.success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+.success-actions .btn { min-width: 180px; }
+
 /* ---- Legal Pages (Privacy / Terms) ---- */
 .legal-content {
   max-width: 760px;
@@ -1129,7 +1197,14 @@ ul { list-style: none; }
 
   /* Hero */
   .hero-split { padding: 3rem 0; min-height: 0; }
-  .hero-content { margin: 0 auto; max-width: 100%; padding: 1.75rem; }
+  .hero-content {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
 
   /* Contact */
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }

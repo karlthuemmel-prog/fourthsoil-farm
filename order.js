@@ -26,6 +26,7 @@
     bulkVariety: document.getElementById('bulkVariety'),
     bulkQty: document.getElementById('bulkQty'),
     oneTimeTotal: document.getElementById('oneTimeTotal'),
+    deliveryFeeNote: document.getElementById('deliveryFeeNote'),
     continueBtn: document.getElementById('continueBtn'),
     stepConfigure: document.getElementById('step-configure'),
     stepUpsell: document.getElementById('step-upsell'),
@@ -122,7 +123,7 @@
 
   // ---- Price calculation (display only — Worker is authoritative) ----
 
-  function calculateOneTimeTotal() {
+  function calculateOneTimeSubtotal() {
     const planType = getSelectedPlanType();
 
     if (planType === 'variety-pack') {
@@ -149,7 +150,7 @@
     return 0;
   }
 
-  function calculateSubscriptionTotal() {
+  function calculateSubscriptionSubtotal() {
     const planType = getSelectedPlanType();
 
     if (planType === 'variety-pack') {
@@ -176,6 +177,23 @@
     return 0;
   }
 
+  // Adds the delivery fee whenever the relevant subtotal is under the free
+  // threshold — mirrors cloudflare-worker/create-checkout-session.js exactly,
+  // so the price shown here always matches what Stripe will actually charge.
+  function applyDeliveryFee(subtotal) {
+    return subtotal < pricing.delivery.freeThreshold
+      ? subtotal + pricing.delivery.fee
+      : subtotal;
+  }
+
+  function calculateOneTimeTotal() {
+    return applyDeliveryFee(calculateOneTimeSubtotal());
+  }
+
+  function calculateSubscriptionTotal() {
+    return applyDeliveryFee(calculateSubscriptionSubtotal());
+  }
+
   function findBulkCategory(varietyId) {
     if (pricing.bulk.shoots.varieties.some((v) => v.id === varietyId)) return 'shoots';
     if (pricing.bulk.micros.varieties.some((v) => v.id === varietyId)) return 'micros';
@@ -183,7 +201,9 @@
   }
 
   function updatePriceDisplay() {
-    els.oneTimeTotal.textContent = money(calculateOneTimeTotal());
+    const subtotal = calculateOneTimeSubtotal();
+    els.oneTimeTotal.textContent = money(applyDeliveryFee(subtotal));
+    els.deliveryFeeNote.hidden = subtotal >= pricing.delivery.freeThreshold;
   }
 
   // ---- Build the order payload sent to the Worker ----
@@ -324,6 +344,11 @@
 
     showPanelFor(getSelectedPlanType());
     updatePriceDisplay();
+
+    if (new URLSearchParams(window.location.search).get('canceled') === 'true') {
+      els.orderStatus.textContent = 'Your order was not completed — no charge was made. Feel free to try again whenever you’re ready.';
+      els.orderStatus.className = 'form-status';
+    }
   }
 
   if (document.readyState === 'loading') {

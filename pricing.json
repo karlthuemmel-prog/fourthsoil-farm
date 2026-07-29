@@ -3,6 +3,12 @@
 
   "subscriptionDiscount": 0.15,
 
+  "delivery": {
+    "freeThreshold": 20.00,
+    "fee": 5.00,
+    "_comment": "If the order subtotal (before this fee) is under freeThreshold, add fee as a Delivery Fee line item. Applies every billing cycle for subscriptions, not just the first."
+  },
+
   "box": {
     "oneTimePrice": 6.00,
     "subscriptionPrice": 5.10,

@@ -43,12 +43,12 @@ Current pricing:
 - Variety Pack / Custom Combo: **$6/box** one-time, **$5.10/box** subscription
 - Single Variety Bulk (8oz): **$13.25/pkg** shoots, **$21.50/pkg** micros one-time; **$11.26** / **$18.28** subscription
 - Subscription discount: **15% off** one-time price, everywhere
+- **Delivery fee:** a flat **$5** is added whenever the order subtotal is under **$20** — applies to subscriptions every billing cycle, not just the first. This is enforced server-side in the Worker and shown on the Order page before checkout, so the two always match.
 
 ### Not set up yet (flagged, not decided)
 - **Per-product links on the homepage** — the 5 "Add to Order" buttons in the Products section are still placeholders; the dynamic Order page is the main path for now.
 - **Sales tax (Stripe Tax)** — Michigan's tax treatment of perishable food sales should be confirmed with an accountant before turning this on.
 - **Delivery-area restriction** — Stripe Checkout collects an address but nothing currently blocks orders from outside the Ann Arbor delivery area. Treat this as a manual check for now (review delivery addresses after an order comes in) — could be added as validation in the Worker later.
-- **Free-shipping threshold** — the homepage still advertises "Free delivery on orders above $20," but the Order page/Worker don't currently add a shipping charge for smaller orders (e.g. a single $6 box or one $13.25 bulk package both fall under $20). Worth deciding whether to add a shipping line item below that threshold, or simplify the messaging — flagging this gap rather than guessing at a fix.
 - **Stripe Customer Portal** — lets subscribers cancel or update payment themselves without emailing you. Worth enabling once the base flow is live and working (Dashboard → Settings → Billing → Customer portal).
 
 ---
@@ -191,4 +191,4 @@ fourthsoil-farm/
 
 ## Contact
 
-Karl & Jeanne Thuemmel — [microgreens@fourthsoil.farm](mailto:microgreens@fourthsoil.farm) — (734) 221-3971
+Karl & Jeanne Thuemmel — [microgreens@fourthsoil.farm](mailto:microgreens@fourthsoil.farm) — (734) 547-6557

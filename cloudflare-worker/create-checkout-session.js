@@ -57,6 +57,8 @@ const BULK_VARIETIES = {
   'spicy-asian-mustard': { label: 'Spicy Asian Mustard', category: 'micros' },
 };
 
+const DELIVERY = { freeThreshold: 20.00, fee: 5.00 };
+
 // ---- Helpers ---------------------------------------------------------
 
 function corsHeaders(env) {
@@ -179,6 +181,29 @@ function buildLineItems(order) {
   throw new OrderError(`Unknown plan type: ${planType}`);
 }
 
+// Adds a $5 Delivery Fee line item when the order subtotal is under $20.
+// For subscriptions, the fee recurs on the same interval as the order, so a
+// small recurring order is charged the fee every cycle, not just the first.
+function addDeliveryFeeIfNeeded(lineItems, recurring) {
+  const subtotalCents = lineItems.reduce(
+    (sum, item) => sum + item.price_data.unit_amount * item.quantity,
+    0
+  );
+
+  if (subtotalCents >= toCents(DELIVERY.freeThreshold)) {
+    return lineItems;
+  }
+
+  const priceData = {
+    currency: 'usd',
+    unit_amount: toCents(DELIVERY.fee),
+    product_data: { name: 'Delivery Fee' },
+  };
+  if (recurring) priceData.recurring = recurring;
+
+  return [...lineItems, { price_data: priceData, quantity: 1 }];
+}
+
 // ---- Worker entry point -----------------------------------------------
 
 export default {
@@ -201,6 +226,8 @@ export default {
     let lineItems;
     try {
       lineItems = buildLineItems(order);
+      const recurring = order.subscribe ? cadenceToInterval(order.cadence) : null;
+      lineItems = addDeliveryFeeIfNeeded(lineItems, recurring);
     } catch (err) {
       if (err instanceof OrderError) {
         return jsonResponse({ error: err.message }, 400, env);
@@ -212,7 +239,7 @@ export default {
     const sessionParams = {
       mode: order.subscribe ? 'subscription' : 'payment',
       line_items: lineItems,
-      success_url: `${siteUrl}/order.html?success=true`,
+      success_url: `${siteUrl}/success.html`,
       cancel_url: `${siteUrl}/order.html?canceled=true`,
     };
 

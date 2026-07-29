@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your Fourth Soil Farm order is confirmed." />
+  <title>Order Confirmed — Fourth Soil Farm</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a class="nav-logo" href="index.html">
+        <span class="nav-logo-leaf" aria-hidden="true">&#9641;</span>
+        Fourth Soil Farm
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#what-are-microgreens">Microgreens 101</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="tel:7345476557">(734) 547-6557</a></li>
+        <li><a href="order.html" class="btn btn-nav">Order Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="success section">
+      <div class="container">
+        <div class="success-card">
+          <div class="success-icon" aria-hidden="true">&#10003;</div>
+          <p class="section-eyebrow">Order Confirmed</p>
+          <h1>Thank You!</h1>
+          <p class="success-message">
+            Your order has been received and payment is confirmed. We&rsquo;ll be in touch
+            shortly to confirm your delivery details.
+          </p>
+          <p class="success-note">
+            Questions in the meantime? Reach us at
+            <a href="mailto:microgreens@fourthsoil.farm">microgreens@fourthsoil.farm</a>
+            or <a href="tel:7345476557">(734) 547-6557</a>.
+          </p>
+          <div class="success-actions">
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+            <a href="order.html" class="btn btn-outline">Place Another Order</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">
+          <span aria-hidden="true">&#9641;</span> Fourth Soil Farm
+        </p>
+        <p class="footer-tagline">Fresh microgreens, grown to order in Ypsilanti, MI.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html#about">About</a>
+        <a href="order.html">Order</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/fourthsoilfarm" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/fourthsoilfarm" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><a href="index.html#full-catalog">Many more varieties available here</a></p>
+      <p class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms</a>
+      </p>
+      <p>&copy; <span id="year"></span> Fourth Soil Farm &mdash; fourthsoil.farm</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
