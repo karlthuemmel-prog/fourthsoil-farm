@@ -1,0 +1,13 @@
+name = "fourthsoil-checkout"
+main = "create-checkout-session.js"
+compatibility_date = "2024-09-01"
+
+# These are plain (non-secret) variables. Edit the values below to match
+# your real domain before deploying — see SERVERLESS_SETUP.md.
+[vars]
+SITE_URL = "https://fourthsoil.farm"
+ALLOWED_ORIGIN = "https://fourthsoil.farm"
+
+# STRIPE_SECRET_KEY is NOT set here — it's a secret, set separately with:
+#   wrangler secret put STRIPE_SECRET_KEY
+# Never put the secret key in this file or anywhere in the repo.

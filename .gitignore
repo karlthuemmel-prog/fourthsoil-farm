@@ -1,0 +1,13 @@
+# Wrangler local cache/state — never commit, may contain account session info
+cloudflare-worker/.wrangler/
+.wrangler/
+
+# Claude Code session config — local tool only, not site content
+.claude/
+
+# Dependencies (if any get added later)
+node_modules/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db

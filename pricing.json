@@ -1,0 +1,55 @@
+{
+  "_comment": "Canonical pricing source. Loaded by order.js for live client-side display AND mirrored in cloudflare-worker/create-checkout-session.js for the authoritative server-side charge. If you change a number here, change it in both places — the Worker never trusts a price sent by the browser.",
+
+  "subscriptionDiscount": 0.15,
+
+  "box": {
+    "oneTimePrice": 6.00,
+    "subscriptionPrice": 5.10,
+    "_comment": "Per box, used by Variety Pack (fixed 4 boxes) and Custom Combo (variable box count per variety)."
+  },
+
+  "varietyPack": {
+    "boxCount": 4,
+    "contents": ["broccoli", "sunflower-shoots", "pea-shoots", "crunchy-mix"],
+    "_comment": "Fixed standard combo. Price = 4 x box price. No variety picker shown to the customer."
+  },
+
+  "customComboVarieties": [
+    { "id": "broccoli",             "label": "Broccoli" },
+    { "id": "zippy-mix",            "label": "Zippy Mix" },
+    { "id": "crunchy-mix",          "label": "Crunchy Mix" },
+    { "id": "sunflower-shoots",     "label": "Sunflower Shoots" },
+    { "id": "pea-shoots",           "label": "Pea Shoots" },
+    { "id": "rainbow-radish-mix",   "label": "Rainbow Radish Mix" },
+    { "id": "tendril-pea",          "label": "Tendril Pea" },
+    { "id": "red-cabbage",          "label": "Red Cabbage" },
+    { "id": "spicy-asian-mustard",  "label": "Spicy Asian Mustard" },
+    { "id": "cilantro",             "label": "Cilantro" },
+    { "id": "red-garnet-amaranth",  "label": "Red Garnet Amaranth" },
+    { "id": "immunoboost-blend",    "label": "Immunoboost Blend (seasonal)" }
+  ],
+
+  "bulk": {
+    "packageSize": "8 oz",
+    "shoots": {
+      "oneTimePrice": 13.25,
+      "subscriptionPrice": 11.26,
+      "varieties": [
+        { "id": "pea-shoots",       "label": "Pea Shoots" },
+        { "id": "sunflower-shoots", "label": "Sunflower Shoots" }
+      ]
+    },
+    "micros": {
+      "oneTimePrice": 21.50,
+      "subscriptionPrice": 18.28,
+      "varieties": [
+        { "id": "broccoli",            "label": "Broccoli" },
+        { "id": "tendril-pea",         "label": "Tendril Pea" },
+        { "id": "red-cabbage",         "label": "Red Cabbage" },
+        { "id": "spicy-asian-mustard", "label": "Spicy Asian Mustard" }
+      ]
+    },
+    "_comment": "Mixes, Cilantro, and Red Garnet Amaranth are NOT offered in bulk format — only the 6 varieties listed above."
+  }
+}

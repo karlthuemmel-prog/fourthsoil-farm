@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Order fresh microgreens from Fourth Soil Farm — build your own combo, order in bulk, or subscribe and save 15%. Free delivery to the Ann Arbor area." />
+  <title>Order — Fourth Soil Farm</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a class="nav-logo" href="index.html">
+        <span class="nav-logo-leaf" aria-hidden="true">&#9641;</span>
+        Fourth Soil Farm
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#what-are-microgreens">Microgreens 101</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="tel:7342213971">(734) 221-3971</a></li>
+        <li><a href="order.html" class="btn btn-nav">Order Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="order-form section" id="order">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Build Your Order</p>
+          <h1>Order Fourth Soil Farm Microgreens</h1>
+          <p class="section-intro">
+            Pick a Variety Pack, build your own Custom Combo, or order a single variety in bulk.
+            Free delivery to the Ann Arbor area.
+          </p>
+        </div>
+
+        <!-- STEP 1: Configure order -->
+        <div class="order-step" id="step-configure">
+
+          <fieldset class="order-type-group">
+            <legend class="order-fieldset-legend">Choose your order type</legend>
+
+            <label class="order-type-option">
+              <input type="radio" name="planType" value="variety-pack" checked />
+              <span class="order-type-label">
+                <strong>Variety Pack</strong>
+                <span>Our standard combo &mdash; Broccoli, Sunflower Shoots, Pea Shoots &amp; Crunchy Mix (4 boxes)</span>
+              </span>
+            </label>
+
+            <label class="order-type-option">
+              <input type="radio" name="planType" value="custom-combo" />
+              <span class="order-type-label">
+                <strong>Custom Combo</strong>
+                <span>Pick your own varieties and quantities</span>
+              </span>
+            </label>
+
+            <label class="order-type-option">
+              <input type="radio" name="planType" value="single-bulk" />
+              <span class="order-type-label">
+                <strong>Single Variety Bulk</strong>
+                <span>One variety, 8oz packages</span>
+              </span>
+            </label>
+          </fieldset>
+
+          <!-- Variety Pack panel (no extra inputs needed) -->
+          <div class="order-panel" id="panel-variety-pack">
+            <p class="order-panel-note">
+              4 boxes: Broccoli, Sunflower Shoots, Pea Shoots &amp; Crunchy Mix &mdash; our most popular mix, ready to order as-is.
+            </p>
+          </div>
+
+          <!-- Custom Combo panel -->
+          <div class="order-panel" id="panel-custom-combo" hidden>
+            <div class="combo-rows" id="comboRows"></div>
+            <button type="button" class="btn btn-outline btn-small-add" id="addComboRow">+ Add Another Variety</button>
+          </div>
+
+          <!-- Single Variety Bulk panel -->
+          <div class="order-panel" id="panel-single-bulk" hidden>
+            <div class="bulk-row">
+              <div class="form-group">
+                <label for="bulkVariety">Variety</label>
+                <select id="bulkVariety"></select>
+              </div>
+              <div class="form-group form-group--qty">
+                <label for="bulkQty">8oz Packages</label>
+                <input type="number" id="bulkQty" min="1" value="1" />
+              </div>
+            </div>
+          </div>
+
+          <div class="order-price-display">
+            <span>One-time price:</span>
+            <span class="order-price-amount" id="oneTimeTotal">$24.00</span>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block" id="continueBtn">Continue</button>
+        </div>
+
+        <!-- STEP 2: Subscription upsell -->
+        <div class="order-step" id="step-upsell" hidden>
+          <div class="upsell-card">
+            <p class="section-eyebrow">Almost there</p>
+            <h2>Save 15% With a Subscription</h2>
+            <p class="upsell-compare">
+              <span class="upsell-was">One-time: <strong id="upsellOneTime">$24.00</strong></span>
+              <span class="upsell-arrow" aria-hidden="true">&rarr;</span>
+              <span class="upsell-now">Subscribe: <strong id="upsellSubTotal">$20.40</strong> / delivery</span>
+            </p>
+            <p class="upsell-savings">You save <strong id="upsellSavings">$3.60</strong> every delivery when you subscribe.</p>
+
+            <fieldset class="cadence-group">
+              <legend class="order-fieldset-legend">Delivery cadence (if subscribing)</legend>
+              <label class="cadence-option">
+                <input type="radio" name="cadence" value="weekly" checked />
+                Weekly
+              </label>
+              <label class="cadence-option">
+                <input type="radio" name="cadence" value="biweekly" />
+                Every 2 weeks
+              </label>
+            </fieldset>
+
+            <div class="upsell-actions">
+              <button type="button" class="btn btn-primary btn-block" id="subscribeBtn">Subscribe &amp; Save 15%</button>
+              <button type="button" class="btn btn-outline btn-block" id="oneTimeBtn">Continue With One-Time Order</button>
+            </div>
+
+            <p class="order-reassurance">
+              Change or cancel your order any time &mdash; just
+              <a href="index.html#contact">send us a message</a>.
+            </p>
+
+            <button type="button" class="order-back-link" id="backBtn">&larr; Back to order</button>
+          </div>
+        </div>
+
+        <p class="form-status" id="orderStatus" aria-live="polite"></p>
+
+        <div class="subscribe-market">
+          <p>
+            <span aria-hidden="true">&#127981;</span>
+            Prefer to shop in person?
+            Find us at the <strong>Ann Arbor Farmers Market</strong> &mdash; check our
+            <a href="https://www.instagram.com/fourthsoilfarm" target="_blank" rel="noopener">Instagram</a>
+            for weekly market schedule and availability.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">
+          <span aria-hidden="true">&#9641;</span> Fourth Soil Farm
+        </p>
+        <p class="footer-tagline">Fresh microgreens, grown to order in Ypsilanti, MI.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html#about">About</a>
+        <a href="order.html">Order</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/fourthsoilfarm" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/fourthsoilfarm" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><a href="index.html#full-catalog">Many more varieties available here</a></p>
+      <p class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms</a>
+      </p>
+      <p>&copy; <span id="year"></span> Fourth Soil Farm &mdash; fourthsoil.farm</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="order.js"></script>
+</body>
+</html>
