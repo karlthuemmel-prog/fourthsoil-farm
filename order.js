@@ -285,7 +285,7 @@
     els.orderStatus.className = 'form-status';
 
     if (CHECKOUT_ENDPOINT.includes('YOUR_WORKER_ENDPOINT_HERE')) {
-      els.orderStatus.textContent = 'Ordering isn’t set up yet — please email microgreens@fourthsoil.farm to place your order.';
+      els.orderStatus.textContent = 'Ordering isn’t set up yet — please email info@fourthsoil.farm to place your order.';
       els.orderStatus.className = 'form-status error';
       buttons.forEach((b) => { b.disabled = false; });
       return;
@@ -305,7 +305,7 @@
 
       window.location.href = result.url;
     } catch (err) {
-      els.orderStatus.textContent = `Something went wrong: ${err.message}. Please try again or email microgreens@fourthsoil.farm.`;
+      els.orderStatus.textContent = `Something went wrong: ${err.message}. Please try again or email info@fourthsoil.farm.`;
       els.orderStatus.className = 'form-status error';
       buttons.forEach((b) => { b.disabled = false; });
     }
@@ -350,6 +350,17 @@
       els.orderStatus.className = 'form-status';
     }
   }
+
+  // Catches the case where a customer used the browser's own Back button to
+  // leave Stripe's checkout page — that's a pure client-side history
+  // navigation and never touches our ?canceled=true redirect, but it does
+  // restore this page from the browser's back/forward cache (bfcache).
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted && els.orderStatus && !els.orderStatus.textContent) {
+      els.orderStatus.textContent = 'Looks like you didn’t finish checking out — no charge was made. Ready when you are.';
+      els.orderStatus.className = 'form-status';
+    }
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

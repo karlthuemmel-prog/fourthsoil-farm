@@ -136,6 +136,14 @@ When you're confident everything works in test mode:
    (paste your `sk_live_...` key this time)
 2. Nothing else changes — the same Worker URL, the same `order.js`, the same
    `wrangler.toml`. Only the secret key switches from test to live.
+3. **Customer Portal link.** The footer's "Manage Subscription" link currently
+   points at a **test-mode** portal login link
+   (`billing.stripe.com/p/login/test_...`). Like Payment Links, Stripe doesn't
+   carry test-mode portal configuration into Live mode — in the Dashboard,
+   switch to Live mode, go to **Settings → Billing → Customer portal**, set it
+   up there too, and copy the live portal login link. Search all five HTML
+   files for `billing.stripe.com/p/login/test_` and replace it with your live
+   link before launch.
 
 ---
 

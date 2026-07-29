@@ -191,4 +191,4 @@ fourthsoil-farm/
 
 ## Contact
 
-Karl & Jeanne Thuemmel — [microgreens@fourthsoil.farm](mailto:microgreens@fourthsoil.farm) — (734) 547-6557
+Karl & Jeanne Thuemmel — [info@fourthsoil.farm](mailto:info@fourthsoil.farm) — (734) 547-6557

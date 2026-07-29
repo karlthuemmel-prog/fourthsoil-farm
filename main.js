@@ -68,7 +68,7 @@
 
       // Bail out if placeholder URL hasn't been replaced yet
       if (form.action.includes('YOUR_FORMSPREE_ID')) {
-        status.textContent = 'Contact form not configured yet — please email microgreens@fourthsoil.farm directly.';
+        status.textContent = 'Contact form not configured yet — please email info@fourthsoil.farm directly.';
         status.className = 'form-status error';
         return;
       }
@@ -96,7 +96,7 @@
           throw new Error(msg || 'Submission failed');
         }
       } catch (err) {
-        status.textContent = 'Something went wrong. Please email microgreens@fourthsoil.farm directly.';
+        status.textContent = 'Something went wrong. Please email info@fourthsoil.farm directly.';
         status.className = 'form-status error';
       } finally {
         submitBtn.disabled = false;

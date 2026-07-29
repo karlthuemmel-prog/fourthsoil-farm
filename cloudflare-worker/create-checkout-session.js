@@ -35,7 +35,7 @@ const CUSTOM_COMBO_VARIETIES = {
   'sunflower-shoots': 'Sunflower Shoots',
   'pea-shoots': 'Pea Shoots',
   'rainbow-radish-mix': 'Rainbow Radish Mix',
-  'tendril-pea': 'Tendril Pea',
+  'arugula': 'Arugula',
   'red-cabbage': 'Red Cabbage',
   'spicy-asian-mustard': 'Spicy Asian Mustard',
   'cilantro': 'Cilantro',
@@ -55,6 +55,7 @@ const BULK_VARIETIES = {
   'tendril-pea': { label: 'Tendril Pea', category: 'micros' },
   'red-cabbage': { label: 'Red Cabbage', category: 'micros' },
   'spicy-asian-mustard': { label: 'Spicy Asian Mustard', category: 'micros' },
+  'arugula': { label: 'Arugula', category: 'micros' },
 };
 
 const DELIVERY = { freeThreshold: 20.00, fee: 5.00 };
